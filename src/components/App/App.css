@@ -1,0 +1,13 @@
+body {
+  background: #34a8ff;
+}
+
+.main-wrapper {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  height: calc(100vh - 20px);
+  width: calc(100vw - 20px);
+  background: #fff;
+  box-sizing: border-box;
+}

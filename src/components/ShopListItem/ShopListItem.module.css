@@ -1,0 +1,28 @@
+.item {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  padding: 15px;
+  margin: 10px 0;
+  background: #1c81ff;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.text {
+  display: block;
+}
+
+.remove {
+  padding: 5px 10px;
+  display: block;
+  margin-left: auto;
+  border: 1px solid;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.remove:hover {
+  background: #f00;
+  border-color: #f00;
+}
