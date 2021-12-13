@@ -1,29 +1,18 @@
 import React from 'react';
-import logo from './assets/logo.svg';
+import { Provider } from 'react-redux';
+
+import HomePage from './views/HomePage/HomePage';
+
+import configureStore from './store/configureStore';
 
 import './App.css';
 
+const store = configureStore();
+
 const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit
-        {' '}
-        <code>src/App.js</code>
-        {' '}
-        and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+  <Provider store={store}>
+    <HomePage />
+  </Provider>
 );
 
 export default App;
