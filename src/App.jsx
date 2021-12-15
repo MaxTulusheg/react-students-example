@@ -1,7 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-import HomePage from './views/HomePage/HomePage';
+import AppRoutes from './components/AppRoutes/AppRoutes';
 
 import configureStore from './store/configureStore';
 
@@ -11,7 +12,9 @@ const store = configureStore();
 
 const App = () => (
   <Provider store={store}>
-    <HomePage />
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   </Provider>
 );
 

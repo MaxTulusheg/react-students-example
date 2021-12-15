@@ -1,3 +1,18 @@
+body {
+  background-color: #2d8dfb;
+}
+
+.page-wrapper {
+  margin: 15px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.page-wrapper h1 {
+  text-align: center;
+}
+
 .book-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -60,4 +75,39 @@
 
 .book-form label+input {
   font-size: 20px;
+}
+
+.nav-title {
+  text-align: center;
+}
+
+.nav-title:hover {
+  cursor: pointer;
+  color: #408bdf;
+}
+
+.nav {
+  display: flex;
+}
+
+.active-link {
+  display: block;
+  margin: 0 10px;
+  text-decoration: underline;
+  color: #408bdf;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.link {
+  display: block;
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+}
+
+.book-details img {
+  display: block;
+  margin: 0 auto;
 }

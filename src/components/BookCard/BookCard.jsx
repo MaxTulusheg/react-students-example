@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { removeBook } from '../../store/books/books.actions';
 
 const BookCard = ({ title, description, id }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onRemoveBook = () => {
     dispatch(removeBook(id));
@@ -14,7 +16,7 @@ const BookCard = ({ title, description, id }) => {
   return (
     <div className="book-card">
       <img src="https://picsum.photos/200" alt="book pic" />
-      <h3 title={title}>{title}</h3>
+      <h3 className="nav-title" title={title} onClick={() => navigate(`/books/${id}`)}>{title}</h3>
       {description ? (
         <p>{description}</p>
       ) : (

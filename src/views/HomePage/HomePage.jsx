@@ -1,13 +1,9 @@
 import React from 'react';
 
-import AddBookForm from '../../components/AddBookForm/AddBookForm';
-import BookList from '../../components/BookList/BookList';
-
 const HomePage = () => (
   <div>
-    <h1>Library</h1>
-    <AddBookForm />
-    <BookList />
+    <h1>Home</h1>
+    <p style={{ textAlign: 'center' }}>In this app you can add and look for books!</p>
   </div>
 );
 
