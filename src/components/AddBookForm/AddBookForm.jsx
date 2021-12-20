@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 
-import { addBook } from '../../store/books/books.actions';
+import { addBook, retrieveBooks } from '../../store/books/books.actions';
 
-const AddBookForm = ({ addBook: createBook }) => {
+const AddBookForm = () => {
+  const dispatch = useDispatch();
+
+  const isBookListLoading = useSelector((state) => state.books.isLoading);
+  const bookListLength = useSelector((state) => state.books.books.length);
+
   const onSubmitForm = (event) => {
     event.preventDefault();
 
@@ -14,14 +17,17 @@ const AddBookForm = ({ addBook: createBook }) => {
     const description = event.target.elements.description.value || '';
 
     if (title) {
-      createBook({
+      dispatch(addBook({
         title,
         description,
         id: uuid(),
-      });
+      }));
 
       event.target.reset();
     }
+  };
+  const onLoadBooks = () => {
+    dispatch(retrieveBooks());
   };
 
   return (
@@ -35,19 +41,15 @@ const AddBookForm = ({ addBook: createBook }) => {
         <input id="book-description-field" type="text" name="description" />
       </label>
       <input type="submit" value="Add a book" />
+      <input
+        type="button"
+        disabled={bookListLength || isBookListLoading}
+        onClick={onLoadBooks}
+        value={isBookListLoading ? 'Loading...' : 'Load book list'}
+        style={{ margin: '10px 0 0' }}
+      />
     </form>
   );
 };
 
-AddBookForm.propTypes = {
-  addBook: PropTypes.func.isRequired,
-};
-
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-  addBook,
-}, dispatch);
-
-export default connect(
-  null,
-  mapDispatchToProps,
-)(AddBookForm);
+export default AddBookForm;

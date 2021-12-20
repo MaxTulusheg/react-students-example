@@ -1,21 +1,16 @@
-import * as types from './books.types';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 
-/**
- * Add book to the store
- * @param {Object} book - Book object
- * @returns {{payload: Object, type: string}} - Action to add a book
- */
-export const addBook = (book) => ({
-  type: types.ADD_BOOK,
-  payload: book,
-});
+import { getBooks } from '../../mock/general';
 
-/**
- * Remove book from the store by ID
- * @param {string} bookId - Book ID to be removed
- * @returns {{payload: string, type: string}} - Remove book action object
- */
-export const removeBook = (bookId) => ({
-  type: types.REMOVE_BOOK,
-  payload: bookId,
-});
+export const addBook = createAction('books/addBook');
+export const removeBook = createAction('books/removeBook');
+
+export const retrieveBooks = createAsyncThunk(
+  'books/retrieveBooks',
+  async () => {
+    const response = await new Promise((resolve) => {
+      setTimeout(() => resolve(getBooks()), 1000);
+    });
+    return response;
+  },
+);

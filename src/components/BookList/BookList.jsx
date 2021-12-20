@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import BookCard from '../BookCard/BookCard';
 
 const BookList = () => {
-  const bookList = useSelector((state) => state.books);
+  const bookList = useSelector((state) => state.books.books);
 
   return (
     <div className="book-list">

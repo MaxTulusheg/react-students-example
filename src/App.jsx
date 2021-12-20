@@ -4,11 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 import AppRoutes from './components/AppRoutes/AppRoutes';
 
-import configureStore from './store/configureStore';
+import store from './store/store';
 
 import './App.css';
-
-const store = configureStore();
 
 const App = () => (
   <Provider store={store}>
