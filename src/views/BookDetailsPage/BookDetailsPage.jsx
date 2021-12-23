@@ -1,9 +1,10 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const BookDetailsPage = () => {
-  const { id } = useParams();
+import withRouter from '../../utils/hoc/withRouter';
+
+const BookDetailsPage = ({ params: { id } }) => {
   const book = useSelector((state) => state.books.books.find((bookItem) => bookItem.id === id));
 
   return (
@@ -22,4 +23,10 @@ const BookDetailsPage = () => {
   );
 };
 
-export default BookDetailsPage;
+BookDetailsPage.propTypes = {
+  params: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default withRouter(BookDetailsPage);

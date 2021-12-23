@@ -7,17 +7,21 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.24.0",
+    "classnames": "^2.3.1",
+    "formik": "^2.2.9",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.1.1",
     "react-scripts": "4.0.3",
+    "styled-components": "^5.3.3",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "ESLINT_NO_DEV_ERRORS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,7 +42,8 @@
       "default-param-last": "off",
       "react/jsx-props-no-spreading": "off",
       "jsx-a11y/click-events-have-key-events": "off",
-      "jsx-a11y/no-noninteractive-element-interactions": "off"
+      "jsx-a11y/no-noninteractive-element-interactions": "off",
+      "jsx-a11y/label-has-associated-control": "off"
     }
   },
   "browserslist": {
